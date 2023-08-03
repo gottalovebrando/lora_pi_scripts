@@ -16,8 +16,8 @@ timeout_seconds = 0.05  # time it will wait for a newline. 0.05 secs is more tha
 
 # File settings
 log_file = "/opt/lora_logger/serial_log_python_lora_V1.1.txt"
-# Time interval for flushing aka forcing write of log to disk (in seconds)
-flush_interval = 120  # 2 minute
+# Time interval for flushing aka forcing write of log to disk
+flush_interval = 30 #in seconds
 # Variables to track time
 last_flush_time = time.time()
 

@@ -10,6 +10,9 @@ echo "--change password with passwd"
 echo "--Determine what number host we are on and replace NNNNN with that number set hostname by editing /etc/hostname (by simply replacing the entire file with get-aboutNNNNN) and /etc/hosts (by looking for line with 127.0.0.1 and replacing the old hostname on that line with get-aboutNNNNN)."
 #reboot friday (dow=5, sunday is 0 and 7) at 2:10 am)
 echo "--Run sudo crontab -e and manually add this line to the bottom: '10 2 * * 5 /usr/sbin/reboot'"
+echo "--Run:"
+echo "git config --global user.name "name""
+echo "git config --global user.email "email""
 
 #install support programs
 sudo apt update && sudo apt upgrade -y
@@ -25,9 +28,10 @@ sudo dpkg -i teamviewer_armhf.deb
 cd ~
 sudo mkdir /opt/lora_logger
 sudo chown $(whoami) /opt/lora_logger
-echo "please manually clone the git repo to here /opt/lora_logger"
+#echo "please manually clone the git repo to here /opt/lora_logger"
 #@TODO- make cloning easy with git
-read -rp "Press Enter to continue..."
+git clone https://github.com/gottalovebrando/lora_pi_scripts.git /opt/lora_logger
+read -rp "check files have been cloned from github. Press Enter to continue..."
 chmod 777 set_permissions.sh
 #set permissions with script
 ./set_permissions.sh
