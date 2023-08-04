@@ -9,6 +9,7 @@ read -rp "Press Enter to continue..."
 sudo chown -R $(whoami):0 ./ #set me as owner, root as group
 #sudo chown -R $(whoami):$(whoami) ./
 sudo chmod 775 ./ #set permissions for the folder we are in. Allow root group to do everything, others to read all, (execute=list for folders) @TODO-is read necessary for a folder?
+#@TODO-get this to recersuvely work on all files in subfolders
 sudo chmod 774 ./* #root group can do all, all can read (later take away root group permissions to write to scripts and other's ability to even read them)
 sudo chmod 750 ./*.py ./*.sh #take away others ability to read scripts
 
