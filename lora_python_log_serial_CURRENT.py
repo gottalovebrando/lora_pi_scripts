@@ -11,7 +11,7 @@ debug_on = True
 
 # Serial port settings
 serial_port = "/dev/ttyS0"  # Replace with the appropriate serial port path
-baud_rate = 9600  # Adjust to match the transmitting device's baud rate
+baud_rate = 4800  # Adjust to match the transmitting device's baud rate
 timeout_seconds = 0.05  # time it will wait for a newline. 0.05 secs is more than enough time for ~30 characters of serial data to transmit at 9600 baud.
 
 # File settings
