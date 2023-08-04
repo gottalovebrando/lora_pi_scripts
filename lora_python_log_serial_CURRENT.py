@@ -1,6 +1,7 @@
 # author: Brandon
 # V1.0-initial,  assumes the data being transmitted is text-based. Binary data requires modification
 # V1.1-modify to handle binary data & write to file more frequently
+# V1.3-change delimeter to ' to make parsing easier
 
 import serial
 from datetime import datetime
@@ -26,7 +27,7 @@ print("lora_python_log_serialV1.1.py-beginning to log serial data. Anything rece
 
 
 def get_timestamp():
-    return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return datetime.now().strftime("'%Y'%m'%d'%H'%M'%S'")
 
 
 def main():

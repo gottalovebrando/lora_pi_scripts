@@ -16,7 +16,8 @@ tmux split-window -v -t status_mon:0 'tail -f serial_log_python_lora_V1.1.txt'
 tmux split-window -h -t status_mon:0 'htop'
 tmux select-pane -t status_mon:0.0
 #@TODO-figure out why this has a problem starting all commands with atop
-tmux split-window -h -t status_mon:0 'journalctl -u lora_startup'
+#tmux split-window -h -t status_mon:0 'journalctl -u lora_startup'
+tmux split-window -h -t status_mon:0 'sudo journalctl -fu lora_startup.service'
 #tmux split-window -h -t status_mon:0
 tmux attach-session -t status_mon
 
