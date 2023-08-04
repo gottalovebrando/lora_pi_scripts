@@ -11,7 +11,7 @@ tmux new-session -d -s status_mon '/opt/lora_logger/resource_monitor.sh'
 # Split the window into panes and run status commands
 #I think format is: -t [session].[window].[pane] @TODO-double check
 #sleep .1
-tmux split-window -v -t status_mon:0 'tail -f serial_log_python_lora_V1.1.txt'
+tmux split-window -v -t status_mon:0 'tail -f serial_log_python_lora.txt'
 #tmux split-window -h -t status_mon:0
 tmux split-window -h -t status_mon:0 'htop'
 tmux select-pane -t status_mon:0.0
