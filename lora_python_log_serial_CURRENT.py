@@ -2,6 +2,7 @@
 # V1.0-initial,  assumes the data being transmitted is text-based. Binary data requires modification
 # V1.1-modify to handle binary data & write to file more frequently
 # V1.3-change delimeter to ' to make parsing easier
+# V1.4-added log_version variable
 
 #@TODO:
 #add ability to reset the radio via GPIO
@@ -12,6 +13,7 @@ import time
 
 # general variables
 debug_on = True
+log_version = 1.4 #@TODO-get this to save log version into the file
 
 # Serial port settings
 serial_port = "/dev/ttyS0"  # Replace with the appropriate serial port path
@@ -20,13 +22,15 @@ baud_rate = 9600  # Adjust to match the transmitting device's baud rate.
 timeout_seconds = 0.05  # time it will wait for a newline. 0.05 secs is more than enough time for ~30 characters of serial data to transmit at 9600 baud.
 
 # File settings
-log_file = "/opt/lora_logger/serial_log_python_lora_V1.1.txt"
+log_file = "/opt/lora_logger/serial_log_python_lora.txt"
 # Time interval for flushing aka forcing write of log to disk
 flush_interval = 30 #in seconds
 # Variables to track time
 last_flush_time = time.time()
 
 print("lora_python_log_serialV1.1.py-beginning to log serial data. Anything received will go in file.")
+print("log version:")
+print(log_version)
 
 
 def get_timestamp():
