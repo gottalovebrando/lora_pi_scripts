@@ -2,6 +2,8 @@
 #V1.0
 #V1.1-changed for /opt/ and root to execute
 #by Brand~o
+#@TODO:
+# fix giving logs execute permission
 
 echo "Setting permissions for current directory. If this is not your intent, ctrl-c now. Otherwise,"
 read -rp "Press Enter to continue..."

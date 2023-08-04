@@ -11,7 +11,8 @@ debug_on = True
 
 # Serial port settings
 serial_port = "/dev/ttyS0"  # Replace with the appropriate serial port path
-baud_rate = 4800  # Adjust to match the transmitting device's baud rate
+#@TODO-fix the problem of message corruption when throttling is throttled=0x80008 or throttled=0xe000e. 300 and 600 give \x00\x00\ over and over. setting to 1200 gives good data when the system isn't throttling. set back to 9600
+baud_rate = 9600  # Adjust to match the transmitting device's baud rate. 
 timeout_seconds = 0.05  # time it will wait for a newline. 0.05 secs is more than enough time for ~30 characters of serial data to transmit at 9600 baud.
 
 # File settings
