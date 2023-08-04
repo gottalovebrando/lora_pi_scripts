@@ -3,6 +3,9 @@
 # V1.1-modify to handle binary data & write to file more frequently
 # V1.3-change delimeter to ' to make parsing easier
 
+#@TODO:
+#add ability to reset the radio via GPIO
+
 import serial
 from datetime import datetime
 import time
