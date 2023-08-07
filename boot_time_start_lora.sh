@@ -14,6 +14,8 @@ echo $(pwd) >> $FILE
 echo $(type python) >> $FILE
 echo $(type tmux) >> $FILE
 
+
+#@TODO- add command to sync time
 python /opt/lora_logger/lora_python_log_serial_CURRENT.py
 
 echo "done running at this time:" >> $FILE
