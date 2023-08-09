@@ -21,6 +21,9 @@ tmux split-window -h -t status_mon:0 'sudo journalctl -fu lora_startup.service'
 #tmux split-window -h -t status_mon:0
 tmux attach-session -t status_mon
 
+#@TODO-consider monitoring this for unauthorized connection attempts
+#sudo cat /var/log/auth.log | grep -i invalid
+
 #this doesn't hit enter
 #tmux send-keys -t status_mon:0.0 'python ~/lora_python_log_serialV1.1.py'
 
