@@ -1,5 +1,5 @@
 #!/bin/bash
-#V1.0-initial startup script
+#V1.1-initial startup script
 
 #@TODO-get this to work
 #FOLDER="/opt/lora_logger"
@@ -14,6 +14,8 @@ echo $(pwd) >> $FILE
 echo $(type python) >> $FILE
 echo $(type tmux) >> $FILE
 
+
+#sudo tailscale up #not needed, tailcale starts itself
 
 #@TODO- add command to sync time
 python /opt/lora_logger/lora_python_log_serial_CURRENT.py

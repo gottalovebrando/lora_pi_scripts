@@ -19,10 +19,25 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install git -y
 #nice to have but not required:
 #sudo apt install tmux atop -y
+#install remote monitoring software
+#teamviewer
 wget https://download.teamviewer.com/download/linux/teamviewer_armhf.deb
 sudo dpkg -i teamviewer_armhf.deb
 sudo apt-get install -f
 sudo dpkg -i teamviewer_armhf.deb
+#tailscale @TODO-for Bullseye only. Add support for others https://tailscale.com/kb/1197/install-rpi-bullseye/
+sudo apt-get install apt-transport-https
+#Add Tailscale’s package signing key and repository:
+curl -fsSL https://pkgs.tailscale.com/stable/raspbian/bullseye.noarmor.gpg | sudo tee /usr/share/keyrings/tailscale-archive-keyring.gpg > /dev/null
+curl -fsSL https://pkgs.tailscale.com/stable/raspbian/bullseye.tailscale-keyring.list | sudo tee /etc/apt/sources.list.d/tailscale.list
+sudo apt-get update
+sudo apt-get install tailscale -y
+echo "please authenticate the tailscale to the management account witht the URL below."
+read -rp "Press Enter to continue..."
+sudo tailscale up
+echo "FYI, by default this device will be inaccessible via tailscale after 180 days as a security feature. Consider disabling this for debug purposes. https://tailscale.com/kb/1028/key-expiry/"
+read -rp "Press Enter to continue..."
+
 
 #install the software to make it a base station
 cd ~
