@@ -53,7 +53,7 @@ def parse_line(l):
     }
 
 
-def format_json(m, longitude, latitude):
+def format_json(m, latitude, longitude):
     working = m["motion_events"] == "1"
     return (
         json.dumps(
@@ -87,8 +87,8 @@ def main():
             if line:
                 message = parse_line(line)
                 json_line = format_json(
-                    message, 1.111111, 1.111111
-                )  # precision must be to 6 decimal places for accesibility.cloud
+                    message, 38.834509, -77.309430
+                )  # GPS coordinate precision must be to 6 decimal places for accesibility.cloud
                 if json_line:
                     with open(base_dir / Path("api_objects.jsonl"), "a") as outfile:
                         outfile.write(json_line + "\n")
