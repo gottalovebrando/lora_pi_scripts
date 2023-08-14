@@ -89,7 +89,7 @@ def main():
                     message, 1.111111, 1.111111
                 )  # precision must be to 6 decimal places for accesibility.cloud
                 if json_line:
-                    with open("api_objects.jsonl", "a") as outfile:
+                    with open(base_dir / Path("api_objects.jsonl"), "a") as outfile:
                         outfile.write(json_line)
                 logging.info(line)
         except serial.SerialTimeoutException:
