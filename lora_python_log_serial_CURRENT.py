@@ -32,10 +32,11 @@ logging.basicConfig(
 
 def parse_line(l):
     splits = [s for s in re.split("['\s]", l) if s]
-    datetime = time.strptime(" ".join(splits[:2]), "%Y-%m-%d %H:%M:%S,%f")
     message_info = re.split(",", splits[-1])
+    logging.info(splits)
+    logging.info(message_info)
     return {
-        "rx_message_number": splits[3],
+        "rx_message_number": splits[1],
         "rssi": splits[5],
         "snr": splits[6],
         "frequency_error": splits[7],
@@ -48,7 +49,7 @@ def parse_line(l):
         "battery_voltage": message_info[2],
         "motion_events": message_info[3],
         "last_motion_time": message_info[4],
-        "time_recieved": datetime,
+        "time_recieved": time.time(),
     }
 
 
