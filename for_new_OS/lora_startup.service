@@ -5,8 +5,7 @@ Description=Run startup script for lora logging at boot
 Type=simple
 User=1000
 Group=1000
-ExecStartPre=/bin/sleep 1m
-ExecStart=/opt/lora_logger/boot_time_start_lora.sh
+ExecStart=/usr/bin/python3 /opt/lora_logger/lora_python_log_serial_CURRENT.py
 
 [Install]
 WantedBy=multi-user.target
