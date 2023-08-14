@@ -68,7 +68,7 @@ def format_json(m, longitude, latitude):
                 "longDescription": {
                     "string": "A sensor repsonsible for reporting the last known motion event from an elevator"
                 },
-                "stateLastUpdate": {"$date": int(time.mktime(m["time_recieved"]))},
+                "stateLastUpdate": {"$date": int(m["time_recieved"])},
             }
         )
         if working
