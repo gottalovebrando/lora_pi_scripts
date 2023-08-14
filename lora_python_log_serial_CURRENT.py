@@ -91,7 +91,7 @@ def main():
                 )  # precision must be to 6 decimal places for accesibility.cloud
                 if json_line:
                     with open(base_dir / Path("api_objects.jsonl"), "a") as outfile:
-                        outfile.write(json_line)
+                        outfile.write(json_line + "\n")
                 logging.info(line)
         except serial.SerialTimeoutException:
             logging.critical("No data received within the timeout period.")
