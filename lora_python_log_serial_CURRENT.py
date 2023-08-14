@@ -76,9 +76,10 @@ def format_json(m, longitude, latitude):
 
 
 def main():
-    try:
-        ser = serial.Serial(serial_port, baud_rate, timeout=timeout_seconds)
-        while True:
+    ser = serial.Serial(serial_port, baud_rate, timeout=timeout_seconds)
+
+    while True:
+        try:
             line = ser.readline()
             # data = ser.read(ser.in_waiting or 1)  # Read all available bytes or at least 1 byte
             # time.sleep(0.05) #more than enough time for ~30 characters of serial data to transmit at 9600 baud. @TODO-needed?
@@ -91,14 +92,14 @@ def main():
                     with open("api_objects.jsonl", "a") as outfile:
                         outfile.write(json_line)
                 logging.info(line)
-    except serial.SerialTimeoutException:
-        logging.critical("No data received within the timeout period.")
-    except KeyboardInterrupt:
-        logging.info("Logging stopped by the user.")
-    except Exception as e:
-        logging.error(e)
-    finally:
-        ser.close()  # This is potentially unbounded but this will probably never happen
+        except serial.SerialTimeoutException:
+            logging.critical("No data received within the timeout period.")
+        except KeyboardInterrupt:
+            logging.info("Logging stopped by the user.")
+        except Exception as e:
+            logging.error(e)
+        finally:
+            continue
 
 
 if __name__ == "__main__":
