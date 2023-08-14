@@ -33,8 +33,8 @@ logging.basicConfig(
 def parse_line(l):
     splits = [s for s in re.split("['\s]", l) if s]
     message_info = re.split(",", splits[-1])
-    logging.info(splits)
-    logging.info(message_info)
+    #logging.info(splits)
+    #logging.info(message_info)
     return {
         "rx_message_number": splits[1],
         "rssi": splits[3],
