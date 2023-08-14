@@ -11,9 +11,14 @@ tmux new-session -d -s status_mon '/opt/lora_logger/resource_monitor.sh'
 # Split the window into panes and run status commands
 #I think format is: -t [session].[window].[pane] @TODO-double check
 #sleep .1
-tmux split-window -v -t status_mon:0 'tail -f serial_log_python_lora.txt'
+
+#tmux split-window -v -t status_mon:0 'tail -f serial_log_python_lora.txt'
+tmux split-window -v -t status_mon:0 'tail -f lora_python_serial_log_V1.2.txt'
+
 #tmux split-window -h -t status_mon:0
-tmux split-window -h -t status_mon:0 'htop'
+#tmux split-window -h -t status_mon:0 'htop'
+tmux split-window -h -t status_mon:0 'tail -f api_objects.jsonl'
+
 tmux select-pane -t status_mon:0.0
 #@TODO-figure out why this has a problem starting all commands with atop
 #tmux split-window -h -t status_mon:0 'journalctl -u lora_startup'
