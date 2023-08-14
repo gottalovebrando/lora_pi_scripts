@@ -80,7 +80,7 @@ def main():
 
     while True:
         try:
-            line = ser.readline()
+            line = ser.readline().decode("utf-8").strip()
             # data = ser.read(ser.in_waiting or 1)  # Read all available bytes or at least 1 byte
             # time.sleep(0.05) #more than enough time for ~30 characters of serial data to transmit at 9600 baud. @TODO-needed?
             if line:
