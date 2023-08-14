@@ -37,13 +37,13 @@ def parse_line(l):
     logging.info(message_info)
     return {
         "rx_message_number": splits[1],
-        "rssi": splits[5],
-        "snr": splits[6],
-        "frequency_error": splits[7],
-        "bytes_recieved": splits[8],
-        "spreading_factor": splits[9],
-        "signal_bandwidth": splits[10],
-        "frequency": splits[11],
+        "rssi": splits[3],
+        "snr": splits[4],
+        "frequency_error": splits[5],
+        "bytes_recieved": splits[6],
+        "spreading_factor": splits[7],
+        "signal_bandwidth": splits[8],
+        "frequency": splits[9],
         "message": message_info[0],
         "node_id": message_info[1],
         "battery_voltage": message_info[2],
@@ -54,7 +54,7 @@ def parse_line(l):
 
 
 def format_json(m, longitude, latitude):
-    working = m["motion_events"] >= "1" and not 2**16 - 1
+    working = m["motion_events"] == "1"
     return (
         json.dumps(
             {
